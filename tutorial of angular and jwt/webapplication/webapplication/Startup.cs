@@ -31,11 +31,6 @@ namespace webapplication
             services.AddSingleton<IProjectDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<ProjectDatabaseSettings>>().Value);
 
-            ///Sukuriama lokali duomenu baze vartotojams saugoti
-            //services.AddDbContext<UserDbContext>(opt =>
-            //    opt.UseInMemoryDatabase("userDB"));
-
-            //services.AddScoped<UserDbContext>();
 
             services.AddAuthentication(opt => {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

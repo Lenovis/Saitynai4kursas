@@ -13,16 +13,15 @@ export class HomeComponent {
   }
 
   isUserAuthenticated() {
-    let token: string = localStorage.getItem("jwt");
+    const token: string = localStorage.getItem('jwt');
     if (token && !this.jwtHelper.isTokenExpired(token)) {
       return true;
-    }
-    else {
+    } else {
       return false;
     }
   }
 
   public logOut = () => {
-    localStorage.removeItem("jwt");
+    localStorage.removeItem('jwt');
   }
 }
