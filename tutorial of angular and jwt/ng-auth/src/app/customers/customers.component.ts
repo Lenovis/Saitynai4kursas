@@ -8,19 +8,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class CustomersComponent implements OnInit  {
   customers: any;
- 
+
   constructor(private http: HttpClient) { }
- 
+
   ngOnInit() {
-    let token = localStorage.getItem("jwt");
-    this.http.get("http://localhost:5000/api/customers", {
+    const token = localStorage.getItem('jwt');
+    this.http.get('http://localhost:5000/api/customers', {
       headers: new HttpHeaders({
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json'
       })
     }).subscribe(response => {
       this.customers = response;
     }, err => {
-      console.log(err)
+      console.log(err);
     });
   }
 }

@@ -63,6 +63,7 @@ namespace webapplication
             });
 
             services.AddSingleton<UserService>();
+            services.AddSingleton<EventService>();
 
             services.AddControllers();
         }

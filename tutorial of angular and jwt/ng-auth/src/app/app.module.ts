@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { CustomersComponent } from './customers/customers.component';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
+import { EventComponent } from './event/event.component';
 
 export function tokenGetter() {
   return localStorage.getItem('jwt');
@@ -23,6 +24,7 @@ export function tokenGetter() {
     CustomersComponent,
     AppComponent,
     RegisterComponent,
+    EventComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,7 @@ export function tokenGetter() {
       { path: 'login', component: LoginComponent },
       { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard] },
       { path: 'register' , component: RegisterComponent },
+      { path: 'event' , component: EventComponent},
     ]),
     JwtModule.forRoot({
       config: {

@@ -1,0 +1,8 @@
+<ListOfTaskListEntry>
+  <TaskListEntry file="" description="Bus galimi 3 rezimai. Ryto dienos ir vakaro, pagal tai algoritmas automatiskai nuspres kada ideti iviki (jei nurodomas laikas, tada tuo laiku, jei tik laikotarpis tada tik tame laikotarpyje)" />
+  <TaskListEntry file="" description="Event klase dar turi tureti prioritetus" completed="True" />
+  <TaskListEntry file="" description="Vartotojas tures pasirinkti kada yra ryto, dienos ir vakaro metas" />
+  <TaskListEntry file="" description="Sukuriant Event turi buti pridedamas dabartinis sukurimo laikas" completed="True" />
+  <TaskListEntry file="" description="Sukuriamas Event turi buti pridedamas sukurusio vartotojo ID" completed="True" />
+  <TaskListEntry file="" description="Rodomas visu ivykiu saraas pagal vartotojo ID" />
+</ListOfTaskListEntry>

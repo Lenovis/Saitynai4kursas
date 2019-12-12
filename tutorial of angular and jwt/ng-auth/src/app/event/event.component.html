@@ -1,0 +1,43 @@
+
+<form class="form-event" #eventCreationForm="ngForm" (ngSubmit)="event(eventCreationForm)">
+    <div class="container-fluid">
+        <h2 class="form-register-heading">Create event</h2>
+        <div *ngIf="invalidEvent" class="alert alert-danger">Invalid event</div>
+        <br/>
+        
+        <input type="text" id="EventName" name="EventName" ngModel class="form-control" placeholder="Name of event" required autofocus>
+        <br/>
+
+        <input type="text" id="EventAddress" name="EventAddress" ngModel class="form-control" placeholder="Event location">
+        <br/>
+
+        <input type="text" id="EventDescription" name="EventDescription" ngModel class="form-control" placeholder="Description of event">
+        <br/>
+         <!-- Ateityje turi buti standartizuotas datos ivedimas -->
+        <input type="date" name="EventStartDate" id="EventStartDate" ngModel class="form-control" placeholder="Start date of event">
+        <br/>
+         <!-- Ateityje turi buti standartizuotas laiko pasirinkimas -->
+        <input type="text" name="EventStartTime" id="EventStartTime" ngModel class="form-control" placeholder="Start time of event">
+        <br/>
+
+        <input type="text" name="EventEndDate" id="EventEndDate" ngModel class="form-control" placeholder="End date of event">
+        <br/>
+
+        <input type="text" name="EventEndTime" id="EventEndTime" ngModel class="form-control" placeholder="End time of event">
+        <br/>
+
+        <input type="text" name="EventTravelTime" id="EventTravelTime" ngModel class="form-control" placeholder="Travel time for event (hh:mm)">
+        <br/>
+
+        <input type="text" name="EventRepeat" id="EventRepeat" ngModel class="form-control" placeholder="Repeat event every once in:">
+        <br/>
+
+        <select name="EventPriority" id="EventPriority" ngModel class="form-control">
+            <option disabled>Select importance of event</option>
+            <option default value="notImportant">Not important</option>
+            <option value="important">Important</option>
+            <option value="veryImportant">Very important</option>
+        </select>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">New event</button>
+    </div>
+</form>

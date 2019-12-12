@@ -15,9 +15,11 @@ namespace webapplication.Controllers
     public class EventController : ControllerBase
     {
         public readonly EventService _eventService;
-        public EventController(EventService e)
+        public readonly UserService _userService;
+        public EventController(EventService e, UserService user)
         {
             _eventService = e;
+            _userService = user;
         }
 
         // GET: api/values
@@ -44,8 +46,15 @@ namespace webapplication.Controllers
         [HttpPost]
         public ActionResult<Event> Create(Event e)
         {
-            _eventService.Create(e);
+            
+            var userId = _userService.Get()
+                .Where(x => x.UserLogIn == HttpContext.User.Claims.FirstOrDefault().Value)
+                .Select(x => x.Id).FirstOrDefault();
 
+            e.UserId = userId;
+            e.EventCreationDate = DateTime.Now.ToString();
+
+            _eventService.Create(e);
             return CreatedAtRoute("GetEvent", new { id = e.Id.ToString() }, e);
         }
 
