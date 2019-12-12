@@ -24,7 +24,7 @@ export class EventComponent implements OnInit {
       // const token = (response as any).token;
       // localStorage.setItem('jwt', token);
       this.invalidEvent = false;
-      this.router.navigate(['/']);
+      this.router.navigate(['/events']);
     }, err => {
       this.invalidEvent = true;
     });
