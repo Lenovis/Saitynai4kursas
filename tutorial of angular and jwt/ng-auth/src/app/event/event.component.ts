@@ -7,8 +7,10 @@ import { NgForm } from '@angular/forms';
   selector: 'app-event',
   templateUrl: './event.component.html'
 })
-export class EventComponent {
+export class EventComponent implements OnInit {
   invalidEvent: boolean;
+  // tslint:disable-next-line: variable-name
+  _event: any;
 
   constructor(private router: Router, private http: HttpClient) { }
 
@@ -25,6 +27,19 @@ export class EventComponent {
       this.router.navigate(['/']);
     }, err => {
       this.invalidEvent = true;
+    });
+  }
+
+  ngOnInit() {
+    const token = localStorage.getItem('jwt');
+    this.http.get('http://localhost:5000/api/event', {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }).subscribe(response => {
+      this._event = response;
+    }, err => {
+      console.log(err);
     });
   }
 
