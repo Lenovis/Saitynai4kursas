@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using webapplication.Services;
 using webapplication.Models;
 using Microsoft.AspNetCore.Authorization;
+using Newtonsoft.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,8 +27,15 @@ namespace webapplication.Controllers
         // GET: api/values
         //Greiciausiai sitas bus nenaudojamas, kol kas testavimui tik paliktas
         [HttpGet]
-        public ActionResult<List<Event>> Get() =>
-            _eventService.Get();
+        public string Get()
+        {
+            var userId = _userService.Get()
+                .Where(x => x.UserLogIn == HttpContext.User.Claims.FirstOrDefault().Value)
+                .Select(x => x.Id).FirstOrDefault();
+
+            var e = _eventService.Get(userId,true);
+            return JsonConvert.SerializeObject(e);
+        }
 
 
         // GET api/values/5

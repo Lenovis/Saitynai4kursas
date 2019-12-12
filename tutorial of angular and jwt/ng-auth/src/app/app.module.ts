@@ -12,6 +12,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { EventComponent } from './event/event.component';
+import { EventsComponent } from './events/events.component';
 
 export function tokenGetter() {
   return localStorage.getItem('jwt');
@@ -25,6 +26,7 @@ export function tokenGetter() {
     AppComponent,
     RegisterComponent,
     EventComponent,
+    EventsComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,7 @@ export function tokenGetter() {
       { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard] },
       { path: 'register' , component: RegisterComponent },
       { path: 'event' , component: EventComponent, canActivate: [AuthGuard]},
+      { path: 'events' , component: EventsComponent, canActivate: [AuthGuard]},
     ]),
     JwtModule.forRoot({
       config: {

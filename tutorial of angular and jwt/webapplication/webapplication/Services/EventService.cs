@@ -18,8 +18,8 @@ namespace webapplication.Services
             _events = database.GetCollection<Event>(settings.EventsCollectionName);
         }
         //dar nezinau ar sitas butina
-        public List<Event> Get() =>
-            _events.Find(e => true).ToList();
+        public List<Event> Get(string userId, bool b) =>
+            _events.Find(e => e.UserId == userId).ToList();
 
         public Event Get(string id) =>
             _events.Find(e => e.Id == id).FirstOrDefault();
