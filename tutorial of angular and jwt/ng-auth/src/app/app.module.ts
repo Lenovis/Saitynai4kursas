@@ -41,6 +41,7 @@ export function tokenGetter() {
       { path: 'register' , component: RegisterComponent },
       { path: 'event' , component: EventComponent, canActivate: [AuthGuard]},
       { path: 'events' , component: EventsComponent, canActivate: [AuthGuard]},
+      
     ]),
     JwtModule.forRoot({
       config: {
