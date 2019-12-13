@@ -4,7 +4,9 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-root',
   template: `
   <navbar></navbar>
+  <div style="background-color: #fafafa;">
   <router-outlet></router-outlet>
+  </div>
   `,
   styles: []
 })
