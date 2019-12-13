@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { EventComponent } from './event/event.component';
 import { EventsComponent } from './events/events.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 export function tokenGetter() {
   return localStorage.getItem('jwt');
@@ -27,6 +28,7 @@ export function tokenGetter() {
     RegisterComponent,
     EventComponent,
     EventsComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
