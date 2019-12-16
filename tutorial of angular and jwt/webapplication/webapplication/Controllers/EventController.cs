@@ -33,7 +33,7 @@ namespace webapplication.Controllers
                 .Where(x => x.UserLogIn == HttpContext.User.Claims.FirstOrDefault().Value)
                 .Select(x => x.Id).FirstOrDefault();
 
-            var e = _eventService.Get(userId,true);
+            var e = _eventService.Get(userId, true);
             return JsonConvert.SerializeObject(e);
         }
 
@@ -44,7 +44,7 @@ namespace webapplication.Controllers
         {
             var e = _eventService.Get(id);
 
-            if(e == null)
+            if (e == null)
             {
                 return NotFound();
             }
@@ -55,7 +55,7 @@ namespace webapplication.Controllers
         [HttpPost]
         public ActionResult<Event> Create(Event e)
         {
-            
+
             var userId = _userService.Get()
                 .Where(x => x.UserLogIn == HttpContext.User.Claims.FirstOrDefault().Value)
                 .Select(x => x.Id).FirstOrDefault();
@@ -73,7 +73,7 @@ namespace webapplication.Controllers
         {
             var e = _eventService.Get(id);
 
-            if(e == null)
+            if (e == null)
             {
                 return NotFound();
             }
@@ -85,6 +85,9 @@ namespace webapplication.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
+            char[] charsTotrim = { '"', '{', '\\', '}', ':'};
+            id = id.Trim(charsTotrim);
+
             var e = _eventService.Get(id);
 
             if(e == null)

@@ -12,6 +12,14 @@
                 <li *ngIf="event.EventTravelTime!=''">Travel time: {{event.EventTravelTime}}</li>
                 <li *ngIf="event.EventEndDate!=''">End event on: {{event.EventEndDate}} {{event.EventEndTime}}</li>
                 <li *ngIf="event.EventPriority!=''">Priority: {{event.EventPriority}}</li>
+
+                <form class="form-delete" #deleteForm="ngForm" (ngSubmit)="delete(deleteForm)">
+                    
+                    <input type="hidden" id="Id" name="{{event.Id}}" ngModel>
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                    
+                </form>
+                
             </ul>
             <br/>
         </li>        
