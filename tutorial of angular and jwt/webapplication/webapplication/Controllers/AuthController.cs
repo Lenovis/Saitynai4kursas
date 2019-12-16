@@ -56,7 +56,7 @@ namespace webapplication.Controllers
                     issuer: _configuration["Jwt:Issuer"],
                     audience: _configuration["Jwt:Audience"],
                     claims: claims,
-                    expires: DateTime.Now.AddMinutes(15),
+                    expires: DateTime.Now.AddMinutes(180),
                     signingCredentials: signinCredentials
                 );
             return tokeOptions;

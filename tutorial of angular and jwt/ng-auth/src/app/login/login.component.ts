@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'login',
   templateUrl: './login.component.html'
 })

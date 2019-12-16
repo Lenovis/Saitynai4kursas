@@ -2,17 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
-  styleUrls: ['./events.component.css']
+  styleUrls: ['./events.component.css'],
 })
 
 export class EventsComponent implements OnInit {
   events: any;
+  testmessage: string;
 
-  constructor(private http: HttpClient, public router: Router) { }
+  constructor(private http: HttpClient, public router: Router, private data: DataService) { }
 
   public delete = (form: NgForm) => {
     const params = JSON.stringify(form.value);
@@ -33,7 +35,18 @@ export class EventsComponent implements OnInit {
     });
   }
 
-  refresh(){
+
+  edit(a: string) {
+
+    this.data.changeMessage(a);
+    this.data.currentMessage.subscribe(message => this.testmessage = message);
+
+    console.log(this.testmessage); // for debuging
+
+    this.router.navigate(['/updateEvent']);
+  }
+
+  refresh() {
     window.location.reload();
   }
 

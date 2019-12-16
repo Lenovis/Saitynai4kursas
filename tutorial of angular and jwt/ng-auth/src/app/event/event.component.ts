@@ -21,8 +21,6 @@ export class EventComponent implements OnInit {
         'Content-Type': 'application/json'
       })
     }).subscribe(response => {
-      // const token = (response as any).token;
-      // localStorage.setItem('jwt', token);
       this.invalidEvent = false;
       this.router.navigate(['/events']);
     }, err => {
