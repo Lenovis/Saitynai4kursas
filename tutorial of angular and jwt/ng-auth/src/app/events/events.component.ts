@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-events',
@@ -13,7 +12,7 @@ import { Observable } from 'rxjs';
 export class EventsComponent implements OnInit {
   events: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public router: Router) { }
 
   public delete = (form: NgForm) => {
     const params = JSON.stringify(form.value);
@@ -28,9 +27,14 @@ export class EventsComponent implements OnInit {
     this.http.delete(url, options).subscribe
     (response => {
       this.events = response;
+      this.refresh();
     }, err => {
       console.log(err);
     });
+  }
+
+  refresh(){
+    window.location.reload();
   }
 
   ngOnInit() {

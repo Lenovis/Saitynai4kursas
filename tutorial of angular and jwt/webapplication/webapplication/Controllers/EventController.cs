@@ -96,7 +96,7 @@ namespace webapplication.Controllers
             }
             _eventService.Remove(e.Id);
 
-            return NoContent();
+            return Ok();
         }
     }
 }
