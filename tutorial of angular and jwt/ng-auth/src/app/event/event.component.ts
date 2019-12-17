@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
 })
 export class EventComponent implements OnInit {
   invalidEvent: boolean;
+  value: Date = new Date();
   // tslint:disable-next-line: variable-name
   _event: any;
   todaysDate: string;
@@ -30,7 +31,8 @@ export class EventComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.todaysDate = JSON.stringify(new Date ());
+    this.value.setHours(this.value.getHours() + 2);
+    this.todaysDate = this.value.toISOString();
     this.todaysDate = this.todaysDate.split('T')[0].replace('"', '');
 
     this.http.get('http://localhost:5000/api/event', {

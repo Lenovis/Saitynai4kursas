@@ -17,20 +17,14 @@ export class CalendarComponent implements OnInit {
   public currentDate: string[];
   public calendarJson: JSON;
   testmessage: string;
+  value: Date = new Date();
 
-
-  value: Date;
-
-  constructor(private http: HttpClient, private data: DataService, private router: Router) {
-    this.value = new Date ();
-  }
+  constructor(private http: HttpClient, private data: DataService, private router: Router) { }
 
   onChange(args) {
     this.calendarJson = args.value;
     this.result = JSON.stringify(this.calendarJson);
     this.result = this.result.split('T')[0].replace('"', '');
-    this.currentDate = this.result.split('-'); // dar nezinau ar reiks???
-    console.log(this.currentDate);
     this.todaysEvents();
   }
 
@@ -44,9 +38,7 @@ export class CalendarComponent implements OnInit {
     }, err => {
       console.log(err);
     });
-    console.log(this.events);
     this.eve = this.events.filter(x => x.EventStartDate == this.result);
-    console.log(this.events);
   }
 
   public delete = (form: NgForm) => {
@@ -76,8 +68,6 @@ export class CalendarComponent implements OnInit {
     this.data.changeMessage(a);
     this.data.currentMessage.subscribe(message => this.testmessage = message);
 
-    console.log(this.testmessage); // for debuging
-
     this.router.navigate(['/updateEvent']);
   }
   ngOnInit() {
@@ -91,7 +81,8 @@ export class CalendarComponent implements OnInit {
     }, err => {
       console.log(err);
     });
-    this.result = JSON.stringify(new Date ());
+    this.value.setHours(this.value.getHours() + 2);
+    this.result = this.value.toISOString();
     this.result = this.result.split('T')[0].replace('"', '');
   }
 

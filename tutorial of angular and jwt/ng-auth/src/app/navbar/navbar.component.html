@@ -17,12 +17,17 @@
         </li>
         <li class="nav-item dropdown">
             <a *ngIf="isUserAuthenticated()" class="nav-link dropdown-toggle" href="#" id="navbarEvents" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Event
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarEvents">
-                <a class="dropdown-item" href="/event">New event</a>
-                <a class="dropdown-item" href="/events">Events</a>
-              </div>
+              Event
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarEvents">
+              <a class="dropdown-item" href="/event">New event</a>
+              <a class="dropdown-item" href="/events">Events</a>
+            </div>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isUserAuthenticated()" class="nav-link" href="/user" id="navbarProfile" role="button">
+            Profile
+          </a>
         </li>
       </ul>
       <span *ngIf="isUserAuthenticated()">
