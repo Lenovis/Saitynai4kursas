@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~8.0.1",
     "@angular/router": "~8.0.1",
     "@auth0/angular-jwt": "^3.0.1",
+    "@syncfusion/ej2-angular-calendars": "^17.4.39",
     "@vaadin/vaadin": "^14.1.2",
     "@vaadin/vaadin-date-picker": "^4.0.5",
     "bootstrap": "^3.4.1",

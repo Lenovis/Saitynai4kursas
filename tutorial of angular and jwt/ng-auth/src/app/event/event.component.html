@@ -14,13 +14,13 @@
         <input type="text" id="EventDescription" name="EventDescription" ngModel class="form-control" placeholder="Description of event">
         <br/>
          <!-- Ateityje turi buti standartizuotas datos ivedimas -->
-        <input type="date" name="EventStartDate" id="EventStartDate" ngModel class="form-control" placeholder="Start date of event">
+        <input type="date" name="EventStartDate" id="EventStartDate" ngModel="{{todaysDate}}" value="{{todaysDate}}" class="form-control" placeholder="Start date of event yyyy-mm-dd">
         <br/>
          <!-- Ateityje turi buti standartizuotas laiko pasirinkimas -->
-        <input type="text" name="EventStartTime" id="EventStartTime" ngModel class="form-control" placeholder="Start time of event">
+        <input type="text" name="EventStartTime" id="EventStartTime" ngModel="09:00" value="09:00" class="form-control" placeholder="Start time of event">
         <br/>
 
-        <input type="text" name="EventEndDate" id="EventEndDate" ngModel class="form-control" placeholder="End date of event">
+        <input type="text" name="EventEndDate" id="EventEndDate" ngModel="{{todaysDate}}" value="{{todaysDate}}" class="form-control" placeholder="End date of event yyyy-mm-dd">
         <br/>
 
         <input type="text" name="EventEndTime" id="EventEndTime" ngModel class="form-control" placeholder="End time of event">

@@ -11,6 +11,7 @@ export class EventComponent implements OnInit {
   invalidEvent: boolean;
   // tslint:disable-next-line: variable-name
   _event: any;
+  todaysDate: string;
 
   constructor(private router: Router, private http: HttpClient) { }
 
@@ -29,6 +30,9 @@ export class EventComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.todaysDate = JSON.stringify(new Date ());
+    this.todaysDate = this.todaysDate.split('T')[0].replace('"', '');
+
     this.http.get('http://localhost:5000/api/event', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
