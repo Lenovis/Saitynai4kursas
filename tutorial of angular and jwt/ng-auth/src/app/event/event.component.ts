@@ -29,7 +29,6 @@ export class EventComponent implements OnInit {
   }
 
   ngOnInit() {
-    const token = localStorage.getItem('jwt');
     this.http.get('http://localhost:5000/api/event', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'

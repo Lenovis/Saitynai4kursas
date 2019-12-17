@@ -1,1 +1,54 @@
-<p>update-event works!</p>
+<!-- 
+eventCreationDate: "12/12/2019 15:35:02"
+id: "5df242069a03640c4ce0bb73"
+userId: "5dee34ce743cd90e14ab5f81"
+ -->
+<form class="form-event" #eventUpdateForm="ngForm" (ngSubmit)="eventUpdate(eventUpdateForm)">
+    <div class="container-fluid">
+        <h2 class="form-register-heading">Update event</h2>
+        <div *ngIf="invalidEvent" class="alert alert-danger" style="text-align: center;">
+            Something went wrong...
+            <br/>
+            Please go back and select event
+            <br/>
+            <a href="/events" class="btn btn-danger">Back to events page</a>
+        </div>
+        <br/>
+        <div *ngIf="!invalidEvent">
+            <input type="text" id="EventName" name="EventName" ngModel="{{event.eventName}}" class="form-control" value="{{event.eventName}}" placeholder="Name of event" required autofocus>
+            <br/>
+
+            <input type="text" id="EventAddress" name="EventAddress" ngModel="{{event.eventAddress}}" class="form-control" value="{{event.eventAddress}}" placeholder="Event location">
+            <br/>
+
+            <input type="text" id="EventDescription" name="EventDescription" ngModel="{{event.eventDescription}}" class="form-control" value="{{event.eventDescription}}" placeholder="Description of event">
+            <br/>
+            <!-- Ateityje turi buti standartizuotas datos ivedimas -->
+            <input type="date" name="EventStartDate" id="EventStartDate" ngModel="{{event.eventStartDate}}" class="form-control" value="{{event.eventStartDate}}" placeholder="Start date of event">
+            <br/>
+            <!-- Ateityje turi buti standartizuotas laiko pasirinkimas -->
+            <input type="text" name="EventStartTime" id="EventStartTime" ngModel="{{event.EventStartTime}}" class="form-control" value="{{event.EventStartTime}}" placeholder="Start time of event">
+            <br/>
+
+            <input type="text" name="EventEndDate" id="EventEndDate" ngModel="{{event.eventEndDate}}" class="form-control" value="{{event.eventEndDate}}" placeholder="End date of event">
+            <br/>
+
+            <input type="text" name="EventEndTime" id="EventEndTime" ngModel="{{event.eventEndTime}}" class="form-control" value="{{event.eventEndTime}}" placeholder="End time of event">
+            <br/>
+
+            <input type="text" name="EventTravelTime" id="EventTravelTime" ngModel="{{event.eventTravelTime}}" class="form-control" value="{{event.eventTravelTime}}" placeholder="Travel time for event (hh:mm)">
+            <br/>
+
+            <input type="text" name="EventRepeat" id="EventRepeat" ngModel="{{event.eventRepeat}}" class="form-control" value="{{event.eventRepeat}}" placeholder="Repeat event every once in:">
+            <br/>
+
+            <select name="EventPriority" id="EventPriority" ngModel="{{event.eventPriority}}" class="form-control" value="{{event.eventPriority}}">
+                <option disabled>Select importance of event</option>
+                <option default value="notImportant">Not important</option>
+                <option value="important">Important</option>
+                <option value="veryImportant">Very important</option>
+            </select>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+        </div>
+    </div>
+</form>

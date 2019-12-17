@@ -68,17 +68,21 @@ namespace webapplication.Controllers
         }
 
         // PUT api/values/5
-        [HttpPut("{id}")]
+        [HttpPatch("{id}")]
         public IActionResult Update(string id, Event eventIn)
         {
             var e = _eventService.Get(id);
-
+           
             if (e == null)
             {
                 return NotFound();
             }
+            eventIn.Id = e.Id;
+            eventIn.UserId = e.UserId;
+            eventIn.EventCreationDate = DateTime.Now.ToString();
+
             _eventService.Update(id, eventIn);
-            return NoContent();
+            return Ok();
         }
 
         // DELETE api/values/5
