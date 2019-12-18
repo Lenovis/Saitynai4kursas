@@ -15,7 +15,7 @@ namespace webapplication.Controllers
     [Route("api/[controller]"),Authorize]
     public class UserController : ControllerBase
     {
-        private readonly UserService _userService;
+        private readonly IUserService _userService;
 
         public static bool isUserNull(User user)
         {
@@ -39,7 +39,7 @@ namespace webapplication.Controllers
             return temp;
         }
 
-        public UserController(UserService userService)
+        public UserController(IUserService userService)
         {
             _userService = userService;
         }

@@ -65,6 +65,9 @@ namespace webapplication
             services.AddSingleton<UserService>();
             services.AddSingleton<EventService>();
 
+            services.AddScoped<IEventService, EventService>();
+            services.AddScoped<IUserService, UserService>();
+
             services.AddControllers();
         }
 

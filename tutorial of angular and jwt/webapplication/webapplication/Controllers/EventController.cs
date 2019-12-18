@@ -16,9 +16,9 @@ namespace webapplication.Controllers
     [Route("api/[controller]"), Authorize]
     public class EventController : ControllerBase
     {
-        public readonly EventService _eventService;
-        public readonly UserService _userService;
-        public EventController(EventService e, UserService user)
+        public readonly IEventService _eventService;
+        public readonly IUserService _userService;
+        public EventController(IEventService e, IUserService user)
         {
             _eventService = e;
             _userService = user;
@@ -34,7 +34,8 @@ namespace webapplication.Controllers
                 .Select(x => x.Id).FirstOrDefault();
 
             var e = _eventService.Get(userId, true);
-            return JsonConvert.SerializeObject(e);
+            var a = JsonConvert.SerializeObject(e);
+            return a;
         }
 
 

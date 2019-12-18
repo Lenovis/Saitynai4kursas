@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace webapplication.Services
 {
-    public class EventService
+    public class EventService : IEventService
     {
         private readonly IMongoCollection<Event> _events;
 

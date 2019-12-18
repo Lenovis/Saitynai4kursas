@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Security.Cryptography;
 using webapplication.Controllers;
+using webapplication.Services;
 using Xunit;
 
 namespace webapp.Tests
 {
     public class AuthControllerTest
     {
-        [Fact]
-        public static void HashPassword_HashedValueNotEmpty()
+        [Theory]
+        [InlineData("slaptas")]
+        [InlineData("Niekas")]
+        [InlineData("000")]
+        [InlineData("slaptas00")]
+        public static void HashPassword_HashedValueNotEmpty(string password)
         {
-            string password = "slaptas";
-
             string hashed = AuthController.HashPassword(password);
 
             Assert.True(hashed != null);
@@ -28,10 +31,13 @@ namespace webapp.Tests
             Assert.IsType<string>(hashed);
         }
 
-        [Fact]
-        public static void HashPassword_HashesCorrectly()
+        [Theory]
+        [InlineData("slaptas")]
+        [InlineData("Niekas")]
+        [InlineData("000")]
+        [InlineData("slaptas00")]
+        public static void HashPassword_HashesCorrectly(string password)
         {
-            string password = "slaptas";
 
             //-----
             byte[] salt;
@@ -61,5 +67,6 @@ namespace webapp.Tests
             //----
             Assert.Equal(_hash, forTest);
         }
+
     }
 }

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace webapplication.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private readonly IMongoCollection<User> _users;
 
