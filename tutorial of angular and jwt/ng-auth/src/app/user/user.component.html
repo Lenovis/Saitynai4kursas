@@ -1,0 +1,20 @@
+<div class="container">
+    <ul>
+        <li *ngFor="let user of users">
+            <ul class="jumbotron">
+                <li>Name: {{user.firstName}}</li>
+                <li>Last name: {{user.lastName}}</li>
+                
+                <!-- <div class="inline">
+                <button class="d-inline btn btn-primary" (click)="edit(user.Id)">Edit</button>
+                <form class="form-delete d-inline" #deleteForm="ngForm" (ngSubmit)="delete(deleteForm)">
+                    
+                    <input type="hidden" id="Id" name="{{user.id}}" ngModel>
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                    
+                </form>
+                </div> -->
+            </ul>
+        </li>        
+    </ul>
+</div>

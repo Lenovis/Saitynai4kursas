@@ -22,6 +22,7 @@ export class LoginComponent {
     }).subscribe(response => {
       const token = ( response as any).token;
       localStorage.setItem('jwt', token);
+      localStorage.setItem('login', form.value.userLogIn);
       this.invalidLogin = false;
       this.router.navigate(['/']);
     }, err => {

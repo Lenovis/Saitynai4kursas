@@ -1,7 +1,6 @@
 <ListOfTaskListEntry>
   <TaskListEntry file="" description="Bus galimi 3 rezimai. Ryto dienos ir vakaro, pagal tai algoritmas automatiskai nuspres kada ideti iviki (jei nurodomas laikas, tada tuo laiku, jei tik laikotarpis tada tik tame laikotarpyje)" />
   <TaskListEntry file="" description="Vartotojas tures pasirinkti kada yra ryto, dienos ir vakaro metas" />
-  <TaskListEntry file="" description="Vartotojo profilio langas" />
   <TaskListEntry file="" description="Galima matyti tik vykstamus įvykius" />
   <TaskListEntry file="" description="Įvykiai turi būti išdėstyti nuo artimiausio iki vėliausio" />
   <TaskListEntry file="" description="įvykiai be datos iškeliami į priekį" />
