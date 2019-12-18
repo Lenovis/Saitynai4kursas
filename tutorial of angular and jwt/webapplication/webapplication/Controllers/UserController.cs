@@ -17,7 +17,27 @@ namespace webapplication.Controllers
     {
         private readonly UserService _userService;
 
-        
+        public static bool isUserNull(User user)
+        {
+            bool temp = false;
+            User empty = new User
+            {
+                Id = "",
+                FirstName = "",
+                LastName = "",
+                UserPassword = "",
+                UserLogIn = ""
+            };
+            if (user.Id == empty.Id)
+            {
+                temp = true;
+            }
+            else if(user == null)
+            {
+                temp = true;
+            }
+            return temp;
+        }
 
         public UserController(UserService userService)
         {
@@ -33,7 +53,7 @@ namespace webapplication.Controllers
         {
             var user = _userService.Get(id);
 
-            if(user == null)
+            if(isUserNull(user))
             {
                 return NotFound();
             }

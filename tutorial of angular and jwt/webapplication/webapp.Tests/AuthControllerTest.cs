@@ -33,8 +33,6 @@ namespace webapp.Tests
         {
             string password = "slaptas";
 
-            string hashed = AuthController.HashPassword(password);
-
             //-----
             byte[] salt;
             new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
@@ -50,7 +48,6 @@ namespace webapp.Tests
             string Password = Convert.ToBase64String(hashBytes);
             //----
             byte[] _hashBytes = Convert.FromBase64String(Password);
-            byte[] _salt = new byte[16];
             Array.Copy(_hashBytes, 0, salt, 0, 16);
             var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 1996);
             byte[] _hash = pbkdf2.GetBytes(20);
