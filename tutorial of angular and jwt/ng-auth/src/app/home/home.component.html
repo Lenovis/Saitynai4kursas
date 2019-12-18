@@ -1,11 +1,20 @@
 <div class="text-center">
-<h1>Home Page</h1>
-<br>
-<div *ngIf="isUserAuthenticated()" style="color:blue;">
+<div *ngIf="!isUserAuthenticated()">
   <h2>
+    Welcome to this awesome app!
+  </h2>
+  <h3 style="color: rgb(243, 203, 94);">
+    Please Sign in
+  </h3>
+</div>
+<br>
+<div *ngIf="isUserAuthenticated()">
+  <h1>
+    Home Page
+  </h1>
+  <h2 style="color:blue;">
     YOU ARE LOGGED IN
   </h2>
-  
 </div>
 <app-calendar *ngIf="isUserAuthenticated()"></app-calendar>
 <br>
