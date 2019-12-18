@@ -1,30 +1,35 @@
-<div style="width: 100%;">
-    <ejs-calendar style="margin: auto;" id="calendar" #calendar (change)="onChange($event)" [value]='value'></ejs-calendar>
+<div style="width: 100%; display: flex; flex-wrap: wrap;">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ejs-calendar style="margin: auto;" id="calendar" #calendar (change)="onChange($event)" [value]='value'></ejs-calendar>
+    </div>
     <br/>
-    <p>
+    <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         {{result}}
     </p>
-    <ul>
-        <li *ngFor="let event of eve">
-            <ul class="jumbotron">
-                <li>Name of event: {{event.EventName}}</li>
-                <li *ngIf="event.EventAddress!=''">Location: {{event.EventAddress}}</li>
-                <li *ngIf="event.EventDescription!=''">Description: {{event.EventDescription}}</li>
-                <li *ngIf="event.EventStartDate!=''">Start event on: {{event.EventStartDate}} {{event.EventStartTime}}</li>
-                <li *ngIf="event.EventTravelTime!=''">Travel time: {{event.EventTravelTime}}</li>
-                <li *ngIf="event.EventEndDate!=''">End event on: {{event.EventEndDate}} {{event.EventEndTime}}</li>
-                <li *ngIf="event.EventPriority!=''">Priority: {{event.EventPriority}}</li>
-                <div class="inline">
-                <button class="d-inline btn btn-primary" (click)="edit(event.Id)">Edit</button>
-                <form class="form-delete d-inline" #deleteForm="ngForm" (ngSubmit)="delete(deleteForm)">
-                    
-                    <input type="hidden" id="Id" name="{{event.Id}}" ngModel>
-                    <button class="btn btn-danger" type="submit">Delete</button>
-                    
-                </form>
-                </div>
-            </ul>
-            <br/>
-        </li>        
+    <br/>
+    <ul style="width: 100%; padding: 10px;">
+        <div class="row">
+            <li *ngFor="let event of eve" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                <ul class="jumbotron" >
+                    <li><b>Name of event:</b> {{event.EventName}}</li>
+                    <li *ngIf="event.EventAddress!=''"><b>Location:</b> {{event.EventAddress}}</li>
+                    <li *ngIf="event.EventDescription!=''"><b>Description:</b> {{event.EventDescription}}</li>
+                    <li *ngIf="event.EventStartDate!=''"><b>Start event on:</b> {{event.EventStartDate}} {{event.EventStartTime}}</li>
+                    <li *ngIf="event.EventTravelTime!=''"><b>Travel time:</b> {{event.EventTravelTime}}</li>
+                    <li *ngIf="event.EventEndDate!=''"><b>End event on:</b> {{event.EventEndDate}} {{event.EventEndTime}}</li>
+                    <li *ngIf="event.EventPriority!=''"><b>Priority:</b> {{event.EventPriority}}</li>
+                    <div class="inline">
+                    <button class="d-inline btn btn-primary" (click)="edit(event.Id)">Edit</button>
+                    <form class="form-delete d-inline" #deleteForm="ngForm" (ngSubmit)="delete(deleteForm)">
+                        
+                        <input type="hidden" id="Id" name="{{event.Id}}" ngModel>
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                        
+                    </form>
+                    </div>
+                </ul>
+                <br/>
+            </li>   
+        </div>     
     </ul>
 </div>

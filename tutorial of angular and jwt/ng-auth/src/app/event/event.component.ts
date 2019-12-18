@@ -23,7 +23,7 @@ export class EventComponent implements OnInit {
       })
     }).subscribe(response => {
       this.invalidEvent = false;
-      this.router.navigate(['/events']);
+      this.router.navigate(['/']);
     }, err => {
       this.invalidEvent = true;
     });

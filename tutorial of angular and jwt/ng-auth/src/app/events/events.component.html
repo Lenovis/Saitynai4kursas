@@ -1,17 +1,19 @@
 <div class="container">
-    <a href="/event" class="btn btn-primary">Create new event</a>
+    <div style="width: 100%; align-items: center;">
+        <a href="/event" class="btn btn-primary" style="display: block; margin: 5px 10px;">Create new event</a>
+    </div>
     <br/>
     <br/>
-    <ul>
+    <ul style="padding: 10px;">
         <li *ngFor="let event of events">
             <ul class="jumbotron">
-                <li>Name of event: {{event.EventName}}</li>
-                <li *ngIf="event.EventAddress!=''">Location: {{event.EventAddress}}</li>
-                <li *ngIf="event.EventDescription!=''">Description: {{event.EventDescription}}</li>
-                <li *ngIf="event.EventStartDate!=''">Start event on: {{event.EventStartDate}} {{event.EventStartTime}}</li>
-                <li *ngIf="event.EventTravelTime!=''">Travel time: {{event.EventTravelTime}}</li>
-                <li *ngIf="event.EventEndDate!=''">End event on: {{event.EventEndDate}} {{event.EventEndTime}}</li>
-                <li *ngIf="event.EventPriority!=''">Priority: {{event.EventPriority}}</li>
+                <li><b>Name of event:</b> {{event.EventName}}</li>
+                <li *ngIf="event.EventAddress!=''"><b>Location:</b> {{event.EventAddress}}</li>
+                <li *ngIf="event.EventDescription!=''"><b>Description:</b> {{event.EventDescription}}</li>
+                <li *ngIf="event.EventStartDate!=''"><b>Start event on:</b> {{event.EventStartDate}} {{event.EventStartTime}}</li>
+                <li *ngIf="event.EventTravelTime!=''"><b>Travel time:</b> {{event.EventTravelTime}}</li>
+                <li *ngIf="event.EventEndDate!=''"><b>End event on:</b> {{event.EventEndDate}} {{event.EventEndTime}}</li>
+                <li *ngIf="event.EventPriority!=''"><b>Priority:</b> {{event.EventPriority}}</li>
                 <div class="inline">
                 <button class="d-inline btn btn-primary" (click)="edit(event.Id)">Edit</button>
                 <form class="form-delete d-inline" #deleteForm="ngForm" (ngSubmit)="delete(deleteForm)">
