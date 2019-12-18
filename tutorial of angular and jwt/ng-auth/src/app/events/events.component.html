@@ -15,11 +15,11 @@
                 <li *ngIf="event.EventEndDate!=''"><b>End event on:</b> {{event.EventEndDate}} {{event.EventEndTime}}</li>
                 <li *ngIf="event.EventPriority!=''"><b>Priority:</b> {{event.EventPriority}}</li>
                 <div class="inline">
-                <button class="d-inline btn btn-primary" (click)="edit(event.Id)">Edit</button>
+                <button class="d-inline btn btn-primary" (click)="edit(event.Id)" style="margin: 5px 5px 5px 0px;">Edit</button>
                 <form class="form-delete d-inline" #deleteForm="ngForm" (ngSubmit)="delete(deleteForm)">
                     
                     <input type="hidden" id="Id" name="{{event.Id}}" ngModel>
-                    <button class="btn btn-danger" type="submit">Delete</button>
+                    <button class="btn btn-danger" type="submit" style="margin: 5px;">Delete</button>
                     
                 </form>
                 </div>
