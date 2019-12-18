@@ -5,4 +5,6 @@
   <TaskListEntry file="" description="Įvykiai turi būti išdėstyti nuo artimiausio iki vėliausio" />
   <TaskListEntry file="" description="įvykiai be datos iškeliami į priekį" />
   <TaskListEntry file="" description="Kad mobilie view nav baras uzsidarytu" />
+  <TaskListEntry file="" description="Privalo viska vikdyti viename puslapyje, neperkraunant" />
+  <TaskListEntry file="" description="Tevines - vaikines klases" />
 </ListOfTaskListEntry>
