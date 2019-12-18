@@ -19,7 +19,7 @@ namespace webapplication.Controllers
         private readonly UserService _userService;
         private IConfiguration _configuration;
 
-        private static string HashPassword(string password)
+        public static string HashPassword(string password)
         {
             byte[] salt;
             new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
