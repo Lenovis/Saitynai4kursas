@@ -81,7 +81,7 @@ namespace webapplication.Controllers
 
             _userService.Update(id, userIn);
 
-            return NoContent();
+            return Ok();
         }
 
         [HttpDelete("{id:length(24)}")]
@@ -96,7 +96,7 @@ namespace webapplication.Controllers
 
             _userService.Remove(user.Id);
 
-            return NoContent();
+            return Ok();
         }
     }
 }

@@ -19,7 +19,15 @@ namespace webapplication.Services
                     FirstName="Martynas",
                     LastName="Petruska",
                     UserLogIn="marpet",
-                    UserPassword="jrdyeYzNhmJ8UFjx8uVDk1DKEiCwvJkdqyD+VmtlZUqnuDRM",
+                    UserPassword="slaptas"
+                },
+                new User()
+                {
+                    Id="5dee34f8743cd90e14ab5f82",
+                    FirstName="Brigita",
+                    LastName="Macaite",
+                    UserLogIn="brimac",
+                    UserPassword="slaptas"
                 }
             };
         }
@@ -27,8 +35,10 @@ namespace webapplication.Services
         public List<User> Get()
         {
             List<User> a = new List<User>();
-            User u = _users.Find(user => true);
-            a.Add(u);
+            foreach(var user in _users)
+            {
+                a.Add(user);
+            }
             return a;
         }
 
@@ -44,7 +54,8 @@ namespace webapplication.Services
         public void Update(string id, User userIn)
         {
             var found = _users.FirstOrDefault(user => user.Id == id);
-            found = userIn;
+            _users.Remove(found);
+            _users.Add(userIn);
         }
 
         public void Remove(User userIn)
