@@ -16,8 +16,8 @@ namespace webapplication.Controllers
     [Route("api/[controller]"), Authorize]
     public class EventController : ControllerBase
     {
-        public readonly IEventService _eventService;
-        public readonly IUserService _userService;
+        private readonly IEventService _eventService;
+        private readonly IUserService _userService;
         public EventController(IEventService e, IUserService user)
         {
             _eventService = e;

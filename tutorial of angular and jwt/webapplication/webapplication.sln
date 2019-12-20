@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webapplication", "webapplic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webapp.Tests", "webapp.Tests\webapp.Tests.csproj", "{9FCC2B00-2833-45E4-8DE8-82D523D93D86}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCustomRules", "MyCustomRules\MyCustomRules.csproj", "{BBA36F61-EF92-49B1-8202-E4D200C10B98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9FCC2B00-2833-45E4-8DE8-82D523D93D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FCC2B00-2833-45E4-8DE8-82D523D93D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FCC2B00-2833-45E4-8DE8-82D523D93D86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBA36F61-EF92-49B1-8202-E4D200C10B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBA36F61-EF92-49B1-8202-E4D200C10B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBA36F61-EF92-49B1-8202-E4D200C10B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBA36F61-EF92-49B1-8202-E4D200C10B98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
